@@ -1,5 +1,5 @@
       ldi R20, 5
-Loop: brbs 1, end
+Loop: brbs 1, End
       dec R20
       rjmp Loop
-end:  nop
+End:  nop
