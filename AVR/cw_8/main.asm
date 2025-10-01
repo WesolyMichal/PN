@@ -1,6 +1,6 @@
 nop
 nop
-rjmp 1
+rjmp 2
 nop
 nop
 nop
