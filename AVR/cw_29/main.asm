@@ -6,17 +6,25 @@ ldi @1, low(@2)
 ldi R20, $00
 ldi R21, $1E
 
-out DDRB, R21
+ldi R22, $3F
+ldi R23, $06
 
-MainLoop:
+ldi R24, $7F
+
+out DDRB, R21
+out DDRD, R24
+
 out PORTB, R21
 
-LOAD_CONST R17, R16, 5 
+MainLoop:
+out PORTD, R22
+
+LOAD_CONST R17, R16, 250 
 rcall DelayInMs
 
-out PORTB, R20
+out PORTD, R23
 
-LOAD_CONST R17, R16, 5 
+LOAD_CONST R17, R16, 250 
 rcall DelayInMs
 
 rjmp MainLoop

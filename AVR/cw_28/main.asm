@@ -3,24 +3,6 @@ ldi @0, high(@2)
 ldi @1, low(@2)
 .endmacro
 
-ldi R20, $00
-ldi R21, $1E
-
-OUT DDRB, R21
-
-MainLoop:
-OUT PORTB, R21
-
-LOAD_CONST R17, R16, 5 
-rcall DelayInMs
-
-OUT PORTB, R20
-
-LOAD_CONST R17, R16, 5 
-rcall DelayInMs
-
-rjmp MainLoop
-
 DelayInMs:
 CLCK: rcall DelayOneMs
       subi R16, 1
@@ -42,3 +24,21 @@ pop R17
 pop R16
 
 ret
+
+ldi R20, $00
+ldi R21, $1E
+
+OUT DDRB, R21
+
+MainLoop:
+OUT PORTB, R21
+
+LOAD_CONST R17, R16, 5 
+rcall DelayInMs
+
+OUT PORTB, R20
+
+LOAD_CONST R17, R16, 5 
+rcall DelayInMs
+
+rjmp MainLoop

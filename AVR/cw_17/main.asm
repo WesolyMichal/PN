@@ -1,4 +1,4 @@
-ldi R22, 10
+ldi R22, 11
 CLCK: ldi R20, 200
       ZEWN: ldi R21, 9
             WEWN: nop

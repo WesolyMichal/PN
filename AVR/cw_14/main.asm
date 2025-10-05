@@ -5,3 +5,4 @@ ZEWN: ldi R21, 100
             brne WEWN
       dec R20
       brne ZEWN
+nop

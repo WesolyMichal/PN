@@ -9,8 +9,8 @@ ldi @1, low(@2)
 ldi R18, $7F ; piny wyjœcia portu D
 ldi R19, $1E ; piny wyjœcia portu B
 
-out DDRB, R19
 out DDRD, R18
+out DDRB, R19
 
 ldi R20, $3F ; zero
 

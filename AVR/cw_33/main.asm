@@ -23,7 +23,7 @@ ldi R20, $06
 mov Digit_1, R20
 ldi R20, $5B
 mov Digit_2, R20
-ldi R20, $3F
+ldi R20, $4F
 mov Digit_3, R20
  
 MainLoop:
