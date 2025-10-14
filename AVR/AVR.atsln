@@ -69,6 +69,8 @@ Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "cw_39", "cw_39\cw_39.asmpro
 EndProject
 Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "cw_40", "cw_40\cw_40.asmproj", "{64ECD8E6-0F15-4149-BB68-B33E73CC8445}"
 EndProject
+Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "cw_41", "cw_41\cw_41.asmproj", "{89862EBC-49F0-43EC-B557-8D63507B6DD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -211,6 +213,10 @@ Global
 		{64ECD8E6-0F15-4149-BB68-B33E73CC8445}.Debug|AVR.Build.0 = Debug|AVR
 		{64ECD8E6-0F15-4149-BB68-B33E73CC8445}.Release|AVR.ActiveCfg = Release|AVR
 		{64ECD8E6-0F15-4149-BB68-B33E73CC8445}.Release|AVR.Build.0 = Release|AVR
+		{89862EBC-49F0-43EC-B557-8D63507B6DD4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{89862EBC-49F0-43EC-B557-8D63507B6DD4}.Debug|AVR.Build.0 = Debug|AVR
+		{89862EBC-49F0-43EC-B557-8D63507B6DD4}.Release|AVR.ActiveCfg = Release|AVR
+		{89862EBC-49F0-43EC-B557-8D63507B6DD4}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

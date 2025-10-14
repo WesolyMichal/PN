@@ -52,9 +52,32 @@ MainLoop:
     inc Digit_0
     ldi R16, 10
     cp Digit_0, R16
-    brne RES
+    brne Dig_1
+
     clr Digit_0
-    RES:
+    inc Digit_1
+
+    Dig_1:
+    cp Digit_1, R16
+    brne Dig_2
+    
+    clr Digit_1
+    inc Digit_2
+
+    Dig_2:
+    cp Digit_2, R16
+    brne Dig_3
+
+    clr Digit_2
+    inc Digit_3
+
+    Dig_3:
+    cp Digit_3, R16
+    brne SETDIG
+
+    clr Digit_3
+
+    SETDIG:
     SET_DIGIT 0
     SET_DIGIT 1
     SET_DIGIT 2
@@ -64,7 +87,7 @@ MainLoop:
 DelayInMs:
     push R24
     push R25
-    LOAD_CONST R25, R24, 250
+    LOAD_CONST R25, R24, 5
     CLCK: rcall DelayOneMs
           sbiw R24, 1
           brne CLCK
