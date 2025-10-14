@@ -1,0 +1,36 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATtiny2313"</DEVICE>
+ <WORKING_DIR>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\tn2313def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\Debug/cw_41.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>cw_41.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>cw_41.map</FILE>
+  <FILE>cw_41.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MainLoop><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>51</LINE></MainLoop>
+  <Dig_1><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>60</LINE></Dig_1>
+  <Dig_2><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>67</LINE></Dig_2>
+  <Dig_3><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>74</LINE></Dig_3>
+  <SETDIG><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>80</LINE></SETDIG>
+  <DigitTo7segCode><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>113</LINE></DigitTo7segCode>
+  <DelayInMs><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>87</LINE></DelayInMs>
+  <CLCK><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>91</LINE></CLCK>
+  <DelayOneMs><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>98</LINE></DelayOneMs>
+  <WEWN><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>104</LINE></WEWN>
+  <DigitTable><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_41\main.asm</FILE><LINE>128</LINE></DigitTable>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,27 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATtiny2313"</DEVICE>
+ <WORKING_DIR>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_12\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_12\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\tn2313def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_12\Debug/cw_12.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>cw_12.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>cw_12.map</FILE>
+  <FILE>cw_12.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Loop><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_12\main.asm</FILE><LINE>2</LINE></Loop>
+  <End><FILE>C:\Users\Asus\Desktop\Studia\PN\PN\AVR\cw_12\main.asm</FILE><LINE>5</LINE></End>
+ </LABELS>
+</ASSEMBLER_INFO>
