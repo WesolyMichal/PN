@@ -30,30 +30,19 @@
 .def Digit_2=R3
 .def Digit_3=R2
 
-.cseg ; segment pamiêci kodu programu
+.def PulseEdgeCtrL=R0
+.def PulseEdgeCtrH=R1
+
+.cseg
 
 .org 0 rjmp _main ; skok po resecie (do programu g³ównego)
 
 .org OC1Aaddr rjmp _timer_isr ; skok do obs³ugi przerwania timera
 
-_timer_isr: ; procedura obs³ugi przerwania timera
-    inc R20 ; jakiœ kod
-    reti ; powrót z procedury obs³ugi przerwania (reti zamiast ret)
-
-_main:
-ldi R16, 0b00011110 ; piny wyjœcia portu B
-out DDRB, R16
-
-ldi R16, 0b01111111 ; piny wyjœcia portu D
-out DDRD, R16
-
-.def PulseEdgeCtrL=R0
-.def PulseEdgeCtrH=R1
-
-clr PulseEdgeCtrL
-clr PulseEdgeCtrH
-
-MainLoop:
+_timer_isr:
+    push R16
+    push R17
+    
     inc PulseEdgeCtrL
     brne Overflow
     inc PulseEdgeCtrH
@@ -78,6 +67,37 @@ MainLoop:
     mov Digit_2, R18
     mov Digit_3, R19
 
+    pop R17
+    pop R16
+    reti
+
+_main:
+
+sei
+
+; Inicjalizacja Timera 1
+    push R16
+    push R17
+    ldi R16, (1<<WGM12) | (1<<CS12)
+    out TCCR1B, R16
+    ldi R16, (1<<OCIE1A)
+    out TIMSK, R16
+    LOAD_CONST R17, R16, 30990
+    out OCR1AH, R17
+    out OCR1AL, R16
+    pop R17
+    pop R16
+
+ldi R16, 0b00011110 ; piny wyjœcia portu B
+out DDRB, R16
+
+ldi R16, 0b01111111 ; piny wyjœcia portu D
+out DDRD, R16
+
+clr PulseEdgeCtrL
+clr PulseEdgeCtrH
+
+MainLoop:
     SET_DIGIT 0
     SET_DIGIT 1
     SET_DIGIT 2

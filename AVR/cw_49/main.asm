@@ -30,47 +30,29 @@
 .def Digit_2=R3
 .def Digit_3=R2
 
-.cseg ; segment pamiêci kodu programu
+.def PulseEdgeCtrL=R0
+.def PulseEdgeCtrH=R1
+
+.cseg
 
 .org 0 rjmp _main ; skok po resecie (do programu g³ównego)
 
 .org OC1Aaddr rjmp _timer_isr ; skok do obs³ugi przerwania timera
 
-_timer_isr: ; procedura obs³ugi przerwania timera
-    inc R20 ; jakiœ kod
-    reti ; powrót z procedury obs³ugi przerwania (reti zamiast ret)
+.org 0x0B rjmp _ExtInt_ISR
 
-_main:
-ldi R16, 0b00011110 ; piny wyjœcia portu B
-out DDRB, R16
+_timer_isr:
+    push R16
+    push R17
+    push R18
+    push R19
+    push R24
 
-ldi R16, 0b01111111 ; piny wyjœcia portu D
-out DDRD, R16
+    in R24, SREG
 
-.def PulseEdgeCtrL=R0
-.def PulseEdgeCtrH=R1
-
-clr PulseEdgeCtrL
-clr PulseEdgeCtrH
-
-MainLoop:
-    inc PulseEdgeCtrL
-    brne Overflow
-    inc PulseEdgeCtrH
-    Overflow:
-    LOAD_CONST R17, R16, 10000
-    cp PulseEdgeCtrL, R16
-    brne NoOverflow
-    cp PulseEdgeCtrH, R17
-    brne NoOverflow
-
+    movw R16:R17, PulseEdgeCtrL:PulseEdgeCtrH
     clr PulseEdgeCtrL
     clr PulseEdgeCtrH
-
-    NoOverflow:
-    mov R16, PulseEdgeCtrL
-    mov R17, PulseEdgeCtrH
-
     rcall NumbersToDigits
 
     mov Digit_0, R16
@@ -78,6 +60,67 @@ MainLoop:
     mov Digit_2, R18
     mov Digit_3, R19
 
+    out SREG, R24
+
+    pop R24
+    pop R19
+    pop R18
+    pop R17
+    pop R16
+    reti
+
+_ExtInt_ISR:
+    push R24
+    in R24, SREG
+
+    inc PulseEdgeCtrL
+    brne NoOverflow
+    inc PulseEdgeCtrH
+    rjmp NoOverflow
+
+    NoOverflow:
+    
+    out SREG, R24
+    pop R24
+    reti
+
+_main:
+
+; Inicjalizacja Timera 1
+    push R16
+    push R17
+    ldi R16, (1<<WGM12) | (1<<CS12)
+    out TCCR1B, R16
+    ldi R16, (1<<OCIE1A)
+    out TIMSK, R16
+    LOAD_CONST R17, R16, $3D08
+    out OCR1AH, R17
+    out OCR1AL, R16
+    pop R17
+    pop R16
+
+; Inicjalizacja Zewnêtrznego Przerwania
+    push R16
+    cli
+    ldi R16, (1 << PCIE0)    
+    out GIMSK, R16
+    ldi R16, (1 << ISC00)
+    out PCMSK0, R16
+    sei
+    pop R16
+
+ldi R16, 0b00011110 ; piny wyjœcia portu B
+out DDRB, R16
+
+ldi R16, 0b01111111 ; piny wyjœcia portu D
+out DDRD, R16
+
+clr PulseEdgeCtrL
+clr PulseEdgeCtrH
+
+sei
+
+MainLoop:
     SET_DIGIT 0
     SET_DIGIT 1
     SET_DIGIT 2
